@@ -1,0 +1,58 @@
+{
+    "products": [{
+            "_id": "dress_1",
+            "image": "./images/product-1.jpg",
+            "title": "Wall Mount",
+            "description": "dfsdj  dbfjsdbfj dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 56,
+            "mrpprice": 100
+        },
+        {
+            "_id": "dress_12",
+            "image": "/images/product-2.jpg",
+            "title": "Speaker with Mic",
+            "description": "Speaker with Mic dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 1000,
+            "mrpprice": 1002,
+            "offprice": 30
+        },
+        {
+            "_id": "dress_3",
+            "image": "/images/product-3.jpg",
+            "title": "Smartphone",
+            "description": "Smartphone dfsdj  dbfjsdbfj dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 50000,
+            "mrpprice": 52000
+        },
+        {
+            "_id": "dress_4",
+            "image": "/images/product-4.jpg",
+            "title": "Camera",
+            "description": "Camera dfsdj  dbfjsdbfj dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 3400,
+            "mrpprice": 4000
+        },
+        {
+            "_id": "dress_5",
+            "image": "/images/product-5.jpg",
+            "title": "Sticker",
+            "description": "Sticker dfsdj  dbfjsdbfj dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 120,
+            "mrpprice": 150
+        },
+        {
+            "_id": "dress_6",
+            "image": "/images/product-6.jpg",
+            "title": "Clock",
+            "description": "Clockdfsdj  dbfjsdbfj dfnbdfdjh",
+            "availableSize": ["L", "M", "S"],
+            "price": 999,
+            "mrpprice": 1050
+        }
+    ]
+}
