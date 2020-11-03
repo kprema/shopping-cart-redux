@@ -1,29 +1,31 @@
-import './App.css';
+import React from 'react';
+import data from './data.json';
+import Products from './components/Products';
 
-function App() {
-  return ( <
-    div className = "App" >
-    <
-    header className = "App-header" >
-    <
-    img src = {
-      logo
-    }
-    className = "App-logo"
-    alt = "logo" / >
-    <
-    p >
-    Edit < code > src / App.js < /code> and save to reload. <
-    /p> <
-    a className = "App-link"
-    href = "https://reactjs.org"
-    target = "_blank"
-    rel = "noopener noreferrer" >
-    Learn React <
-    /a> <
-    /header> <
-    /div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      product: data.products,
+      size: '',
+      sort: '',
+    };
+  }
+  render() {
+    return (
+      <div className='container'>
+        <header> Logo </header>
+
+        <main>
+          <div className='product-grid'>
+            <Products products={this.state.product}></Products>
+          </div>
+        </main>
+
+        <footer> All rights reserved @2020 </footer>
+      </div>
+    );
+  }
 }
 
 export default App;
