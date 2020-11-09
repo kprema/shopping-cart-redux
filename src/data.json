@@ -6,7 +6,8 @@
             "description": "dfsdj  dbfjsdbfj dfnbdfdjh",
             "availableSize": ["L", "M", "S"],
             "price": 56,
-            "mrpprice": 100
+            "mrpprice": 100,
+            "category": "decorative"
         },
         {
             "_id": "dress_12",
@@ -16,7 +17,8 @@
             "availableSize": ["L", "M", "S"],
             "price": 1000,
             "mrpprice": 1002,
-            "offprice": 30
+            "offprice": 30,
+            "category": "accessories"
         },
         {
             "_id": "dress_3",
@@ -25,7 +27,8 @@
             "description": "Smartphone dfsdj  dbfjsdbfj dfnbdfdjh",
             "availableSize": ["L", "M", "S"],
             "price": 50000,
-            "mrpprice": 52000
+            "mrpprice": 52000,
+            "category": "phone"
         },
         {
             "_id": "dress_4",
@@ -34,7 +37,8 @@
             "description": "Camera dfsdj  dbfjsdbfj dfnbdfdjh",
             "availableSize": ["L", "M", "S"],
             "price": 3400,
-            "mrpprice": 4000
+            "mrpprice": 4000,
+            "category": "camera"
         },
         {
             "_id": "dress_5",
@@ -43,7 +47,8 @@
             "description": "Sticker dfsdj  dbfjsdbfj dfnbdfdjh",
             "availableSize": ["L", "M", "S"],
             "price": 120,
-            "mrpprice": 150
+            "mrpprice": 150,
+            "category": "decorative"
         },
         {
             "_id": "dress_6",
@@ -52,7 +57,8 @@
             "description": "Clockdfsdj  dbfjsdbfj dfnbdfdjh",
             "availableSize": ["L", "M", "S"],
             "price": 999,
-            "mrpprice": 1050
+            "mrpprice": 1050,
+            "category": "decorative"
         }
     ]
 }
