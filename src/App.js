@@ -4,23 +4,27 @@ import Products from './components/Products';
 import Filter from './components/Filter';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: data.products,
       size: '',
       sort: '',
+      activeItem: 0,
     };
   }
-  filterProducts = (e) => {
+
+  filterProducts = (e, index) => {
     if (e.target.innerText.toLowerCase() === 'all') {
       this.setState({
         filterBy: e.target.innerText.toLowerCase(),
         products: data.products,
+        activeItem: 0,
       });
     } else {
       this.setState({
         filterBy: e.target.innerText.toLowerCase(),
+        activeItem: index,
         products: data.products.filter(
           (product) =>
             product.category.indexOf(e.target.innerText.toLowerCase()) >= 0
@@ -50,6 +54,14 @@ class App extends React.Component {
     });
   };
   render() {
+    const filterByItems = [
+      'All',
+      'Decorative',
+      'Phone',
+      'Camera',
+      'Accessories',
+    ];
+
     return (
       <div className='container'>
         <header> Logo </header>
@@ -61,7 +73,9 @@ class App extends React.Component {
               size={this.state.filterBy}
               sort={this.state.sort}
               filterProducts={this.filterProducts}
-              sortProducts={this.sortProducts}></Filter>
+              sortProducts={this.sortProducts}
+              filterByItems={filterByItems}
+              activeItem={this.state.activeItem}></Filter>
             <Products products={this.state.products}></Products>
           </div>
         </main>

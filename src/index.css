@@ -12458,17 +12458,20 @@ h5,
   font-size: 16px;
 }
 
-.product-category li a {
+.product-category li {
   color: #82ae46;
   padding: 5px 20px;
+}
+
+.product-category li.active {
+  background: #82ae46;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
 }
 
-.product-category li a.active {
-  background: #82ae46;
+.product-category li.active a {
   color: #fff;
 }
 
