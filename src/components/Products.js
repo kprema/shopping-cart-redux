@@ -52,7 +52,9 @@ const Products = (props) => {
                           href='#'
                           className='buy-now d-flex justify-content-center align-items-center mx-1'>
                           <span>
-                            <i className='ion-ios-cart'></i>
+                            <i
+                              className='ion-ios-cart'
+                              onClick={() => props.addToCart(product)}></i>
                           </span>
                         </a>
                         <a
