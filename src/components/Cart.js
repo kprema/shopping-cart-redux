@@ -1,8 +1,10 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import Checkout from './Checkout';
 
 const Cart = (props) => {
   const {cartItems} = props;
+  const [showCheckout, setshowCheckout] = useState(false);
+
   return (
     <div>
       <p>
@@ -47,11 +49,20 @@ const Cart = (props) => {
             <div className='cta-section'>
               <button className='btn btn-primary width-100'>Cart</button>
 
-              <button className='btn btn-primary width-100'>Checkout</button>
+              <button
+                className='btn btn-primary width-100'
+                onClick={() => setshowCheckout(true)}>
+                Checkout
+              </button>
             </div>
           </div>
         )}
       </div>
+      {showCheckout && (
+        <div>
+          <Checkout {...props}></Checkout>
+        </div>
+      )}
     </div>
   );
 };
