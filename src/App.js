@@ -5,7 +5,6 @@ import data from './data.json';
 import Products from './components/Products';
 import Filter from './components/Filter';
 import Cart from './components/Cart';
-import Checkout from './components/Checkout';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +14,13 @@ class App extends React.Component {
       size: '',
       sort: '',
       activeItem: 0,
-      cartItems: [],
+      cartItems: localStorage.getItem('cartItems')
+        ? JSON.parse(localStorage.getItem('cartItems'))
+        : [],
     };
   }
+
+  createOrder = (order) => {};
 
   filterProducts = (e, index) => {
     if (e.target.innerText.toLowerCase() === 'all') {
@@ -72,6 +75,7 @@ class App extends React.Component {
       cartItems.push({...product, count: 1});
     }
     this.setState({cartItems});
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
 
   removeItem = (item) => {
@@ -79,6 +83,10 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems.filter((x) => x._id !== item._id),
     });
+    localStorage.setItem(
+      'cartItems',
+      JSON.stringify(cartItems.filter((x) => x._id !== item._id))
+    );
   };
   render() {
     const filterByItems = [
@@ -115,7 +123,8 @@ class App extends React.Component {
                 <div className='cartContent'>
                   <Cart
                     cartItems={this.state.cartItems}
-                    removeItem={this.removeItem}></Cart>
+                    removeItem={this.removeItem}
+                    createOrder={this.createOrder}></Cart>
                 </div>
               </div>
             </div>
