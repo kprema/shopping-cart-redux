@@ -17,38 +17,73 @@ const Checkout = (props) => {
   const createOrder = (e) => {
     e.preventDefault();
     const order = {
-      name: values.name,
-      email: values.email,
-      address: values.address,
-      cartItems: props.cartItems,
+      size: values.size,
+      imageUrl: values.imageUrl,
+      title: values.title,
+      description: values.description,
+      price: values.price,
+      mrpprice: values.mrpprice,
+      category: values.category,
     };
     props.createOrder(order);
   };
   return (
     <div className='checkout-container'>
-      <form onSubmit={createOrder}>
+      <form onSubmit={createOrder} method='POST' action='/api/products'>
         <ul>
           <li>
-            <label>Name</label>
+            <label>Avalibale size</label>
             <input
               type='text'
-              name='name'
+              name='size'
               required
               onChange={handleInput}></input>
           </li>
           <li>
-            <label>Email</label>
+            <label>Image URL</label>
             <input
-              type='email'
-              name='email'
+              type='text'
+              name='imageUrl'
               required
               onChange={handleInput}></input>
           </li>
           <li>
-            <label>Address</label>
+            <label>Title</label>
             <input
               type='text'
-              name='address'
+              name='title'
+              required
+              onChange={handleInput}></input>
+          </li>
+          <li>
+            <label>Description</label>
+            <input
+              type='text'
+              name='description'
+              required
+              onChange={handleInput}></input>
+          </li>
+          <li>
+            <label>Price</label>
+            <input
+              type='text'
+              name='price'
+              required
+              onChange={handleInput}></input>
+          </li>
+          <li>
+            <label>MRP Price</label>
+            <input
+              type='text'
+              name='mrpprice'
+              required
+              onChange={handleInput}></input>
+          </li>
+          <li>
+            <label>Category</label>
+            <input
+              type='text'
+              name='category'
               required
               onChange={handleInput}></input>
           </li>

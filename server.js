@@ -15,17 +15,7 @@ mongoose
   .then(() => console.log('MongoDB connnected'))
   .catch((err) => console.log(err));
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
-  console.log('h');
-});
-
-exports.test = function (req, res) {
-  res.render('test');
-};
-
-const product = mongoose.model(
+const Product_model = mongoose.model(
   'product-table',
   new mongoose.Schema({
     _id: {type: String, default: shortid.generate},
@@ -41,18 +31,47 @@ const product = mongoose.model(
 );
 
 app.get('/api/products', async (req, res) => {
-  const products = await product.find({});
+  const products = await Product_model.find({});
   res.send(products);
 });
 
 app.post('/api/products', async (req, res) => {
-  const newProduct = new product(req.body);
+  const newProduct = new Product_model(req.body);
   const saveProduct = await newProduct.save();
   res.send(saveProduct);
 });
 
+app.get('/api/productsquery', (req, res) => {
+  var page = parseInt(req.query.page) || 0;
+  var limit = parseInt(req.query.limit) || 18;
+  var query = {};
+
+  Product_model.find(query)
+    .sort({update_at: -1})
+    .skip(page * limit)
+    .limit(limit)
+    .exec((err, doc) => {
+      if (err) {
+        return res.json(err);
+      }
+
+      Product_model.countDocuments(query).exec((count_error, count) => {
+        if (err) {
+          return res.json(count_error);
+        }
+        return res.json({
+          total: count,
+          page: page,
+          pageSize: doc.length,
+          products: doc,
+        });
+      });
+      console.log(page);
+    });
+});
+
 app.delete('/api/products/:id', async (req, res) => {
-  const deletedproduct = await product.findByIdAndDelete(req.param.id);
+  const deletedproduct = await product.findByIdAndDelete(req.params.id);
   res.send(deletedproduct);
 });
 
