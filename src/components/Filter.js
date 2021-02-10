@@ -30,7 +30,7 @@ const Filter = (props) => {
             </div>
             <div className='row pt-30'>
               <p className='col-md-5 text-left'>
-                {props.filteredProduct.length}{' '}
+                {props.filteredProduct && props.filteredProduct.length}{' '}
                 {props.filteredProduct === 1 ? 'item' : 'items'} in the selected
                 Filter
               </p>
