@@ -21,7 +21,6 @@ export const productReducer = (state = {}, action) => {
         size: action.payload.size,
         filteredItems: action.payload.items,
         activeItem: action.payload.activeItem,
-        //items: action.payload,
       };
     case SORT_PRODUCTS:
       return {
