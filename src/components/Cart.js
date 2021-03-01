@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import {removeCartItem} from '../actions/cartActions';
 import Checkout from './Checkout';
+import {connect} from 'react-redux';
 
 const Cart = (props) => {
   const {cartItems} = props;
@@ -8,7 +10,7 @@ const Cart = (props) => {
   return (
     <div>
       <p>
-        {cartItems.length === 0 ? (
+        {cartItems && cartItems.length === 0 ? (
           <div className=''>The Cart is Empty </div>
         ) : (
           <div className=''>The cart has {cartItems.length} items</div>
@@ -32,7 +34,7 @@ const Cart = (props) => {
               <div className='cta-section'>
                 <button
                   className='removeButton'
-                  onClick={() => props.removeItem(items)}>
+                  onClick={() => props.removeCartItem(items)}>
                   X
                 </button>
               </div>
@@ -67,4 +69,9 @@ const Cart = (props) => {
   );
 };
 
-export default Cart;
+export default connect(
+  (state) => ({
+    cartItems: state.cart.cartItems,
+  }),
+  {removeCartItem}
+)(Cart);
