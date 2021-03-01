@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {productAction} from '../actions/productActions';
+import {addToCart} from '../actions/cartActions';
 
 const Products = (props) => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const Products = (props) => {
   }, []);
   return (
     <div>
+      {console.log(props)}
       <section className='ftco-section'>
         <div className='container'>
           {!props.products ? (
@@ -86,6 +88,12 @@ const Products = (props) => {
   );
 };
 
-export default connect((state) => ({products: state.products.filteredItems}), {
-  productAction,
-})(Products);
+export default connect(
+  (state) => ({
+    products: state.products.filteredItems,
+  }),
+  {
+    productAction,
+    addToCart,
+  }
+)(Products);
